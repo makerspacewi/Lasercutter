@@ -27,7 +27,7 @@
 
   last change: 27.09.2018 by Michael Muehl
   changed: communication lasercutter with RFID started,
-  added LED13 as indikator for OK-handsake
+  added LED13 as indikator for OK-handsake 
 */
 #define Version "6.2"
 
