@@ -39,11 +39,11 @@ installiert werden sollen.
 
 <h2>Vorschlag Technik Team zum Umbau des GLC</h2>
 
-- Die 4 NOT-AUS Schalter - wenn ausgelöst - öffnen ein Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
+- Die 4 NOT-AUS Schalter - wenn ausgelöst - öffnen ein separates mechanisches Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
 Desweiteren wird 'NOT-AUS' an den Controller gemeldet, der den Laser-Controller deaktiviert.
 
 - der Stecker des GLC bleibt zukünftig immer in der Steckdose! Ein kleines Netzteil
-versorgt ständig die GLC Zugangs- & Sicherheits Controller, die nur nach erfolgreichem ‘einloggen’ die Netzspannungen an alle Netzteile anlegt und nur dann den CO2-Laser (Controller) frei gibt wenn
+versorgt ständig die GLC Zugangs- & Sicherheits Controller, die nur nach erfolgreichem ‘einloggen’ die Netzspannungen an alle Netzteile anlegt und nur dann den CO2-Laser (Controller) aktiviert, wenn
 
 		- die Sicherheitsschalter geschlossen sind
 		- kein Not-Aus-Schalter aktiviert ist
