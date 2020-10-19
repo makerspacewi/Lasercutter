@@ -53,15 +53,18 @@ installiert werden sollen.
 <h2>Vorschlag Technik Team zum Umbau des GLC</h2>
 
 - Die 4 NOT-AUS Schalter - wenn ausgelöst - öffnen ein Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
+Desweiteren wird 'NOT-AUS' an den Controller gemeldet, der den Laser-Controller deaktiviert.
 
 - der Stecker des GLC bleibt zukünftig immer in der Steckdose! Ein kleines Netzteil
-versorgt ständig den GLC Zugangs-Controller, der nur nach erfolgreichem ‘einloggen’ die
-Netzspannungen an alle Netzteile anlegt und nur dann den CO2-Laser (Controller) frei gibt wenn:
+versorgt ständig die GLC Zugangs- & Sicherheits Controller, die nur nach erfolgreichem ‘einloggen’ die Netzspannungen an alle Netzteile anlegt und nur dann den CO2-Laser (Controller) frei gibt wenn
+
 		- die Sicherheitsschalter geschlossen sind
-		- Rücklauftemperatur des Kühlwassers <= Maximaltemperatur
-		- Flussgeschwindigkeit des Kühlwassers > Grenzwert
-		- ein registriertes Mitglied eingeloggt ist
-Nach getaner Arbeit loggen sich die Mitglieder - wie bei den anderen Maschinen - wieder Aus
-und alle Netzteile werden vom Netz getrennt.
-Um die Absaugung automatisiert einzuschalten, müssen diese vorher entsprechend umgebaut werden.
-Wir bitten um zeitnahe Rückmeldung vom Laser Cutter Team und vom ‘Technik Chef’ ob dieser Umbau stattfinden soll.
+		- kein Not-Aus-Schalter aktiviert ist
+		- die Rücklauftemperatur des Kühlwassers kleiner Maximaltemperatur ist
+		- die Flussgeschwindigkeit des Kühlwassers größer dem Grenzwert ist
+		- und ein registriertes Mitglied eingeloggt ist
+
+
+- Nach getaner Arbeit loggen sich die Mitglieder - wie bei den anderen Maschinen - wieder aus und alle Netzteile werden vom Netz getrennt.
+
+- Um die Absaugung automatisiert einzuschalten, müssen diese vorher entsprechend umgebaut werden.
