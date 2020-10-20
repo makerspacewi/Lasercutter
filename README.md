@@ -9,7 +9,7 @@ Technik Team - vorwiegend dienstags aktiv - Michael M., Klaus F., Elian T. und D
 - Abluft bzw. Absaugung
 wird in Absprache mit den anderen Teams von Brani koordiniert
 
-Die Teams haben über die Monate und Jahre sehr viel gelernt. Oft waren die Enttäuschungen groß, doch es wurde nicht aufgegeben und alternative Lösungswege gefunden.
+Die Teams haben über die Monate und Jahre sehr viel gelernt. Oft war die Enttäuschung groß, doch es wurde nicht aufgegeben und alternative Lösungswege gefunden.
 
 Jetzt - Oktober 2020 - hat der GLC einen mechanisch stabilen Zustand erreicht und eine Nutzung ist nicht mehr fern.
 Allerdings sind noch notwendige Arbeiten an Elektrik und Elektronik auszuführen, um alle Sicherheitsaspekte zu erfüllen.
