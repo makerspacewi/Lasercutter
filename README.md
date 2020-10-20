@@ -1,12 +1,23 @@
 # Großer Laser Cutter (GLC)
-Hierbei handelt es sich um ein DIY-Projekt von Paul Kramer. Ziel war es einen Laser Cutter mit großer Bearbeitungsfläche und einem leistungsstarken CO2-Laser aufzubauen. Beim Aufbau wurde 'nachhaltig' vorgegangen, so kamen vermehrt Materialien zu Einsatz, die gebraucht waren oder gar vom Schrottplatz kamen.
+Hierbei handelt es sich um ein DIY-Projekt, dass von Paul K. ins Leben gerufen wurde. Ziel war es einen Laser Cutter mit großer Bearbeitungsfläche und leistungsstarken CO2-Laser aufzubauen. Beim Aufbau wurde 'nachhaltig' vorgegangen, so kamen vermehrt Materialien zu Einsatz, die gebraucht waren oder gar vom Schrottplatz kamen.
 
-Der DIY-Lasercutter entstand 'planfrei' über mehrere Jahre und es waren eine große Anzahl von Mitgliedern des Makerspace-Wiesbaden beim Aufgbau beteiligt.
+Der DIY-Lasercutter entstand 'planfrei' über mehrere Jahre und es waren eine große Anzahl von Mitgliedern des Makerspace-Wiesbaden beim Aufbau beteiligt. Die folgenden Teams haben sich gebildet:
+- Design und Aufbau Mechanik
+Laser Cutter Team - vorwiegend montags aktiv - Paul K., Stonie, Brani, Klaus F.
+- Elektrischer Aufbau, Zugangs-Controller, Sicherheits Controller
+Technik Team - vorwiegend dienstags aktiv - Michael M., Klaus F., Elian T. und Dieter H.
+- Abluft bzw. Absaugung
+wird in Absprache mit den anderen Teams von Brani koordiniert
+
+Die Teams haben über die Monate und Jahre sehr viel gelernt. Oft waren die Enttäuschungen groß, doch es wurde nicht aufgegeben und alternative Lösungswege gefunden.
+
+Jetzt - Oktober 2020 - hat der GLC einen mechanisch stabilen Zustand erreicht und eine Nutzung ist nicht mehr fern.
+
 
 Control Lasercutter
 
 Leider wurde der Aufbau vom GLC nicht dokumentiert, aus diesem Grund fehlt hier der Verlauf des Aufbaus über die letzten Jahre.
-![Relais_1](doc/IMG_20201015_221211.jpg)
+
 
 
 [Zu den Schaltbildern](doc/Schaltpläne_gr_LasercutterV6.pdf)<br>
@@ -44,8 +55,8 @@ installiert werden sollen.
 <h2>Vorschlag Technik Team zum Umbau des GLC</h2>
 
 - Die 4 NOT-AUS Schalter - wenn ausgelöst - öffnen ein separates mechanisches Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
+![Relais_1](doc/IMG_20201015_221211.jpg)
 Desweiteren wird 'NOT-AUS' an den Controller gemeldet, der den Laser-Controller deaktiviert.
-
 - der Stecker des GLC bleibt zukünftig immer in der Steckdose! Ein kleines Netzteil
 versorgt ständig die GLC Zugangs- & Sicherheits Controller, die nur nach erfolgreichem ‘einloggen’ die Netzspannungen an alle Netzteile anlegt und nur dann den CO2-Laser (Controller) aktiviert, wenn
 
