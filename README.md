@@ -27,7 +27,7 @@ Dort findet ihr:
 <br>
 <h2>Notwendige Arbeiten am großen Laser Cutter</h2>
 19.10.2020<br>
-So - am Dienstag den 13.10.2020 hat sich das Technik-Team die Angelegenheit angeschaut und festgestellt, dass noch einige Sicherheitsrelevante Änderungen realisiert werden müssen.
+Am Dienstag den 13.10.2020 hat sich das Technik-Team die Angelegenheit angeschaut und festgestellt, dass noch einige sicherheitsrelevante Änderungen durchgefhrt werden müssen.
 
 Der Technik-Vorstand hat festgelegt, dass keine Mitglieder für den GLC freigegeben werden dürfen, bis die im folgenden beschriebenen Änderungen ausgeführt sind.
 
@@ -35,6 +35,26 @@ Der Technik-Vorstand hat festgelegt, dass keine Mitglieder für den GLC freigege
 ACHTUNG - MOMENTAN sind die Sicherheitsschalter an den beiden Klappen NICHT verdrahtet!
 Die NOT-AUS Schalter sollen/dürfen nicht zum Aus-/Einschalten des GLC genutzt werden!
 Der Absauglüfter muss manuell vor dem LASERN nach Vorgabe eingeschaltet werden.
+
+
+<h2>Vorschlag Technik Team zum Umbau des GLC</h2>
+
+- Die 4 NOT-AUS Schalter - wenn ausgelöst - öffnen ein separates mechanisches Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
+![Relais_1](doc/IMG_20201015_221211.jpg)
+Desweiteren wird 'NOT-AUS' an den Controller gemeldet, der den Laser-Controller deaktiviert.
+- der Stecker des GLC bleibt zukünftig immer in der Steckdose! Ein kleines Netzteil
+versorgt ständig die GLC Zugangs- & Sicherheits Controller, die nur nach erfolgreichem ‘einloggen’ die Netzspannungen an alle Leistungsnetzteile anlegt und nur dann den CO2-Laser (Controller) aktiviert, wenn
+
+		- die Sicherheitsschalter geschlossen sind
+		- kein Not-Aus-Schalter aktiviert ist
+		- die Rücklauftemperatur des Kühlwassers kleiner Maximaltemperatur ist
+		- die Flussgeschwindigkeit des Kühlwassers größer dem Grenzwert ist
+		- und ein registriertes Mitglied eingeloggt ist
+
+
+- Nach getaner Arbeit loggen sich die Mitglieder - wie bei den anderen Maschinen - wieder aus und alle Netzteile werden vom Netz getrennt.
+
+- Um die Absaugung automatisiert einzuschalten, müssen diese vorher entsprechend umgebaut werden.
 
 <h2>Thema Absauglüfter</h2>
 Der momentane Absauglüfter hat einen Wechselstrommotor, dessen Drehzahl sich nicht regeln läßt.
@@ -53,21 +73,3 @@ für den Kühlwasserlüfter in Betrieb.
 Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Absaugrohr
 installiert werden sollen.
 
-<h2>Vorschlag Technik Team zum Umbau des GLC</h2>
-
-- Die 4 NOT-AUS Schalter - wenn ausgelöst - öffnen ein separates mechanisches Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
-![Relais_1](doc/IMG_20201015_221211.jpg)
-Desweiteren wird 'NOT-AUS' an den Controller gemeldet, der den Laser-Controller deaktiviert.
-- der Stecker des GLC bleibt zukünftig immer in der Steckdose! Ein kleines Netzteil
-versorgt ständig die GLC Zugangs- & Sicherheits Controller, die nur nach erfolgreichem ‘einloggen’ die Netzspannungen an alle Netzteile anlegt und nur dann den CO2-Laser (Controller) aktiviert, wenn
-
-		- die Sicherheitsschalter geschlossen sind
-		- kein Not-Aus-Schalter aktiviert ist
-		- die Rücklauftemperatur des Kühlwassers kleiner Maximaltemperatur ist
-		- die Flussgeschwindigkeit des Kühlwassers größer dem Grenzwert ist
-		- und ein registriertes Mitglied eingeloggt ist
-
-
-- Nach getaner Arbeit loggen sich die Mitglieder - wie bei den anderen Maschinen - wieder aus und alle Netzteile werden vom Netz getrennt.
-
-- Um die Absaugung automatisiert einzuschalten, müssen diese vorher entsprechend umgebaut werden.
