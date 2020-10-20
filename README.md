@@ -11,17 +11,18 @@ wird in Absprache mit den anderen Teams von Brani koordiniert
 
 Die Teams haben über die Monate und Jahre sehr viel gelernt. Oft war die Enttäuschung groß, doch es wurde nicht aufgegeben und alternative Lösungswege gefunden.
 
-Jetzt - Oktober 2020 - hat der GLC einen mechanisch stabilen Zustand erreicht und eine Nutzung ist nicht mehr fern.
+Jetzt - Oktober 2020 - hat der GLC einen mechanisch stabilen Zustand erreicht und eine Nutzung rückt in die Nähe.
 Allerdings sind noch notwendige Arbeiten an Elektrik und Elektronik auszuführen, um alle Sicherheitsaspekte zu erfüllen.
 
 <h1>Control Lasercutter</h1>
 
 Leider wurde der Aufbau vom GLC nicht dokumentiert, aus diesem Grund fehlt hier der Verlauf des Aufbaus über die letzten Jahre.
 Das Technik Team jedoch hat seine Aktivitäten zu Verdrahtung, Zugangs-Controller, Sicherheits-Controller und Software Source Code gut dokumentiert und hier auf Github veröffentlicht. 
+Dort findet ihr:
 
-[Bisherige Schaltbilder](doc/Schaltpläne_gr_LasercutterV5.pdf)
-[Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6.pdf)
-[RFID4Lasercutter](https://github.com/makerspace-wi/RFID4Lasercutter.git)
+- [Bisherige Schaltbilder](doc/Schaltpläne_gr_LasercutterV5.pdf), d.h. letztendlich der momentane Zustand
+- [Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6.pdf), dies sind die Änderungen, die wir zeitnah implementieren werden
+- [RFID4Lasercutter](https://github.com/makerspace-wi/RFID4Lasercutter.git) - hier findet ihr den Sourcecode für den Zugangs-Controller
 
 <br>
 <h2>Notwendige Arbeiten am großen Laser Cutter</h2>
