@@ -46,29 +46,24 @@ versorgt ständig die GLC Zugangs- & Sicherheits Controller, die nur nach erfolg
 
 		- die Sicherheitsschalter geschlossen sind
 		- kein Not-Aus-Schalter aktiviert ist
-		- die Rücklauftemperatur des Kühlwassers kleiner Maximaltemperatur ist
+		- die Rücklauftemperatur des Kühlwassers kleiner der Maximaltemperatur ist
 		- die Flussgeschwindigkeit des Kühlwassers größer dem Grenzwert ist
 		- und ein registriertes Mitglied eingeloggt ist
 
+- Nach getaner Arbeit loggen sich die Mitglieder - wie bei den anderen Maschinen - wieder aus und alle Leistungsnetzteile werden vom Netz getrennt.
 
-- Nach getaner Arbeit loggen sich die Mitglieder - wie bei den anderen Maschinen - wieder aus und alle Netzteile werden vom Netz getrennt.
+- Um die Absaugung zukünftig automatisiert einzuschalten, müssen diese vorher entsprechend umgebaut werden.
 
-- Um die Absaugung automatisiert einzuschalten, müssen diese vorher entsprechend umgebaut werden.
-
-<h2>Thema Absauglüfter</h2>
-Der momentane Absauglüfter hat einen Wechselstrommotor, dessen Drehzahl sich nicht regeln läßt.
+<h2>Thema Absaugung</h2>
+Der momentane Absauglüfter hat einen Wechselstrommotor, dessen Drehzahl sich nicht einfach regeln läßt.
 Dieser Absauglüfter ist extrem laut und hat schon zu Beschweden von Nachbarn geführt.
-Momentane Behelfslösung vom Laser Cutter Team ist, den Lüfter ‘normal’ zu starten und dann
-mittels Phasenanschnittregelung über seine Eigenreibung die Drehzahl zu reduzieren.
+Momentane Behelfslösung vom Laser Cutter Team ist, den Lüfter ‘normal’ zu starten und dann mittels Phasenanschnittsteuerung die Versorgung so weit zu reduzieren, dass sich durch Eigenreibung die Drehzahl verringert.
 Leider lässt sich dieser Prozess nicht automatisieren.
 
 Das Technikteam hat dazu 2 Möglichkeiten evaluiert:
 
-- einen elektronisch regelbaren	Wechselrichter besorgen und damit den Wechselstrommotor regeln	
-- bevorzugte Variante sind Lüfter mit Gleichstrommotoren (von Automobilradiatoren) einzusetzen,
-die mittels PWM auch elektronisch geregelt werden können. Diese Regelung ist bereits
-für den Kühlwasserlüfter in Betrieb.
+- einen elektronisch regelbaren	Wechselrichter besorgen und damit den Wechselstrommotor regeln - oder	
+- bevorzugte Variante sind Lüfter mit Gleichstrommotoren (von Automobilradiatoren) einzusetzen, die mittels PWM auch elektronisch geregelt werden können. Diese Regelung ist bereits für den Kühlwasserlüfter in Betrieb.
 
-Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Absaugrohr
-installiert werden sollen.
+Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Absaugrohr installiert werden sollen. Wie schon oben erwähnt, will Brani diese Arbeiten koordinieren.
 
