@@ -24,7 +24,6 @@ Dort findet ihr:
 - [Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6.pdf), dies sind die Änderungen, die wir zeitnah implementieren werden
 - [RFID4Lasercutter](https://github.com/makerspace-wi/RFID4Lasercutter.git) - hier findet ihr den Sourcecode für den Zugangs-Controller
 
-<br>
 <h2>Notwendige Arbeiten am großen Laser Cutter</h2>
 19.10.2020<br>
 Am Dienstag den 13.10.2020 hat sich das Technik-Team die Angelegenheit angeschaut und festgestellt, dass noch einige sicherheitsrelevante Änderungen durchgefhrt werden müssen.
@@ -32,10 +31,10 @@ Am Dienstag den 13.10.2020 hat sich das Technik-Team die Angelegenheit angeschau
 Der Technik-Vorstand hat festgelegt, dass keine Mitglieder für den GLC freigegeben werden dürfen, bis die im folgenden beschriebenen Änderungen ausgeführt sind.
 
 		
-ACHTUNG - MOMENTAN sind die Sicherheitsschalter an den beiden Klappen NICHT verdrahtet!
+<b>ACHTUNG - MOMENTAN sind die Sicherheitsschalter an den beiden Klappen NICHT verdrahtet!
 Die NOT-AUS Schalter sollen/dürfen nicht zum Aus-/Einschalten des GLC genutzt werden!
 Der Absauglüfter muss manuell vor dem LASERN nach Vorgabe eingeschaltet werden.
-
+</b>
 
 <h2>Vorschlag Technik Team zum Umbau des GLC</h2>
 
