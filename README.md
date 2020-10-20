@@ -18,9 +18,8 @@ Control Lasercutter
 
 Leider wurde der Aufbau vom GLC nicht dokumentiert, aus diesem Grund fehlt hier der Verlauf des Aufbaus über die letzten Jahre.
 
-
-
-[Zu den Schaltbildern](doc/Schaltpläne_gr_LasercutterV6.pdf)<br>
+[Bisherige Schaltbilder](doc/Schaltpläne_gr_LasercutterV5.pdf)
+[Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6.pdf)
 
 <br>
 <h1>Notwendige Arbeiten am großen Laser Cutter</h1> <br>
