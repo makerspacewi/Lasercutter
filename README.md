@@ -1,4 +1,8 @@
 # Großer Laser Cutter (GLC)
+Hierbei handelt es sich um ein DIY-Projekt von Paul Kramer. Ziel war es einen Laser Cutter mit großer Bearbeitungsfläche und einem leistungsstarken CO2-Laser aufzubauen. Beim Aufbau wurde 'nachhaltig' vorgegangen, so kamen vermehrt Materialien zu Einsatz, die gebraucht waren oder gar vom Schrottplatz kamen.
+
+Der DIY-Lasercutter entstand 'planfrei' über mehrere Jahre und es waren eine große Anzahl von Mitgliedern des Makerspace-Wiesbaden beim Aufgbau beteiligt.
+
 Control Lasercutter
 
 Leider wurde der Aufbau vom GLC nicht dokumentiert, aus diesem Grund fehlt hier der Verlauf des Aufbaus über die letzten Jahre.
