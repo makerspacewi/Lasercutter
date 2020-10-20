@@ -20,6 +20,7 @@ Leider wurde der Aufbau vom GLC nicht dokumentiert, aus diesem Grund fehlt hier 
 
 [Bisherige Schaltbilder](doc/Schaltpläne_gr_LasercutterV5.pdf)
 [Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6.pdf)
+[RFID4Lasercutter](https://github.com/makerspace-wi/RFID4Lasercutter.git)
 
 <br>
 <h2>Notwendige Arbeiten am großen Laser Cutter</h2> <br>
