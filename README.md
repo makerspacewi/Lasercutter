@@ -1,7 +1,8 @@
 # Großer Laser Cutter (GLC)
 Hierbei handelt es sich um ein DIY-Projekt, dass von Paul K. ins Leben gerufen wurde. Ziel war es einen Laser Cutter mit großer Bearbeitungsfläche (1500mm x 1500mm) und leistungsstarkem CO2-Laser (150W) aufzubauen. Beim Aufbau wurde 'nachhaltig' vorgegangen, so kamen vermehrt Materialien zu Einsatz, die gebraucht waren oder gar vom Schrottplatz kamen.
 
-Der DIY-Lasercutter entstand 'planfrei' über mehrere Jahre und es war eine große Anzahl von Mitgliedern des Makerspace-Wiesbaden hat den Aufbau unterstützt. Folgende Teams waren maßgeblich beteiligt:
+Der DIY-Lasercutter entstand 'planfrei' über mehrere Jahre und es hat eine große Anzahl von Mitgliedern des Makerspace-Wiesbaden den Aufbau unterstützt. 
+Folgende Teams waren maßgeblich beteiligt:
 - Design und Aufbau Mechanik
 Laser Cutter Team - vorwiegend montags aktiv - Paul K., Stonie, Brani, Klaus F.
 - Elektrischer Aufbau, Zugangs-Controller, Sicherheits Controller
@@ -15,7 +16,6 @@ Jetzt - Oktober 2020 - hat der GLC einen mechanisch stabilen Zustand erreicht un
 Allerdings sind noch notwendige Arbeiten an Elektrik und Elektronik auszuführen, um alle Sicherheitsaspekte zu erfüllen.
 
 <h1>Control Lasercutter</h1>
-
 Leider wurde der Aufbau vom GLC nicht dokumentiert, aus diesem Grund fehlt hier der Verlauf des Aufbaus über die letzten Jahre.
 Das Technik Team jedoch hat seine Aktivitäten zu Verdrahtung, Zugangs-Controller, Sicherheits-Controller und Software Source Code gut dokumentiert und hier auf Github veröffentlicht. 
 Dort findet ihr:
