@@ -67,3 +67,4 @@ Das Technikteam hat dazu 2 Möglichkeiten evaluiert:
 
 Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Absaugrohr installiert werden sollen. Wie schon oben erwähnt, will Brani diese Arbeiten koordinieren.
 
+Testeintrag 26.10.2020
