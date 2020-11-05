@@ -72,3 +72,4 @@ Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Abs
 Zugangssteuerung und Controller wurde ausgebaut.
 ![Controller_1](doc/IMG_7328.jpg)
 Plan ist es diese innerhalb von 2 Wochen umzubauen und einem Labor Debug zu unterziehen.
+Es gibt einen neuen [Schaltplan (neu)](doc/Schaltpläne_gr_LasercutterV6_3.pdf), da der Maschinenschalter erhalten bleiben soll.
