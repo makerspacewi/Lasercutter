@@ -67,7 +67,7 @@ Das Technikteam hat dazu 2 Möglichkeiten evaluiert:
 
 Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Absaugrohr installiert werden sollen. Wie schon oben erwähnt, will Brani diese Arbeiten koordinieren.
 
-<h2>Dienstag der 03.11.2020</h2>
+<h3>Dienstag der 03.11.2020</h3>
 
 Zugangssteuerung und Controller wurde ausgebaut.
 ![Controller_1](doc/IMG_7328.jpg)
