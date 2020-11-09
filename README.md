@@ -21,7 +21,7 @@ Das Technik Team jedoch hat seine Aktivitäten zu Verdrahtung, Zugangs-Controlle
 Dort findet ihr:
 
 - [Bisherige Schaltbilder](doc/Schaltpläne_gr_LasercutterV5.pdf), d.h. letztendlich der momentane Zustand
-- [Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6_3.pdf), dies sind die Änderungen, die wir zeitnah implementieren werden
+- [Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6.pdf), dies sind die Änderungen, die wir zeitnah implementieren werden
 - [RFID4Lasercutter](https://github.com/makerspace-wi/RFID4Lasercutter.git) - hier findet ihr den Sourcecode für den Zugangs-Controller
 
 <h2>Notwendige Arbeiten am großen Laser Cutter</h2>
@@ -72,4 +72,4 @@ Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Abs
 Zugangssteuerung und Controller wurde ausgebaut.
 ![Controller_1](doc/IMG_7328.jpg)
 Plan ist es diese innerhalb von 2 Wochen umzubauen und einem Labor Debug zu unterziehen.
-Es gibt einen neuen [Schaltplan (neu)](doc/Schaltpläne_gr_LasercutterV6_3.pdf), da der Maschinenschalter erhalten bleiben soll.
+Es gibt einen neuen [Schaltplan (neu)](doc/Schaltpläne_gr_LasercutterV6.pdf), da der Maschinenschalter erhalten bleiben soll.
