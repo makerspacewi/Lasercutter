@@ -99,7 +99,7 @@ die 3 NOT-AUS Schalter prüfen/verdrahten und Kabel zum Controller verlegen. Dec
 Ein Spannungsversorgungstrennrelais für die X- und Y-Achse muss auch noch installiert werden, dies wird maßgeblich durch die Deckelschalter aktiviert.
 Auch das Kabel für  den Luftkompressor und den Kühler muss ausgetauscht werden.
 Dann muss der modifizierte Safety-Controller und auch der RFID-Controller wieder installiert und angeschlossen werden.
-Danach wird dann der System-Debug gestartet.
+Danach wird dann das System-Debug gestartet.
 
 Gute Neuigkeiten: Der Michael M. hat die Platinenumbauten weitestgehend abgeschlossen und die neue Testsoftware läuft bereits im Labor.
 
