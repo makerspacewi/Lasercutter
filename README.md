@@ -95,8 +95,8 @@ Im Notfall (und nur dann) kann über den Maschinenschalter ein NOT-AUS gemacht w
 Die restlichen drei NOT-AUS Schalter, wie auch die Deckelschalter werden in Zukunft durch den ‘Safety Controller’ abgefragt.
 
 Arbeiten für die kommenden Dienstage sind: 
-die 3 NOT-AUS Schalter prüfen/verdrahten und Kabel zum Controller verlegen. Deckelschalter prüfen und Kabel zum Controller verlegen. Neue Temperatursensoren kontaktieren und montieren. Kleinnetzteil für den Safety-Controller montieren und Anschlüsse vorbereiten.
-Ein Spannungsversorgungstrennrelais für die X- und Y-Achse muss auch noch installiert werden, dies wird maßgeblich durch die Deckelschalter aktiviert.
+die 3 NOT-AUS Schalter prüfen/verdrahten und Kabel zum Controller verlegen. Deckelschalter prüfen und Kabel zum Controller verlegen (diese unterbrechen den Laser-Controller wenn einer der Deckel geöffnet wird). Neue Temperatursensoren kontaktieren und montieren. Kleinnetzteil für den Safety-Controller montieren und Anschlüsse vorbereiten.
+Ein Spannungsversorgungstrennrelais für die X- und Y-Achse muss auch noch installiert werden, dies wird maßgeblich durch die NOT-AUS Schalter aktiviert.
 Auch das Kabel für  den Luftkompressor und den Kühler muss ausgetauscht werden.
 Dann muss der modifizierte Safety-Controller und auch der RFID-Controller wieder installiert und angeschlossen werden.
 Danach wird dann das System-Debug gestartet.
