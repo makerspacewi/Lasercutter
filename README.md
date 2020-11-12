@@ -77,7 +77,7 @@ Es gibt einen neuen [Schaltplan (neu)](doc/Schaltpläne_gr_LasercutterV6.pdf), d
 
 <h3>Dienstag der 10.11.2020</h3>
 
-Leider wurde der GLC immer noch nicht gereinigt. Auch fanden wir gestern eine nachträglich eingebrachte Versorgungsleitung bestehend aus einem Niedrigspannungssignalkabel, um den großen Luftkompressor und den aktiven Kühler zu versorgen. Ein absolutes ‘No Go’ und muß nachgebesert werden.
+Leider wurde der GLC noch nicht gereinigt. Auch fanden wir gestern eine nachträglich eingebrachte Versorgungsleitung bestehend aus einem Niedrigspannungssignalkabel, um den großen Luftkompressor und den aktiven Kühler zu versorgen. Ein absolutes ‘No Go’ und muß nachgebesert werden.
 
 Im Spannungsversorgungsprimärbereich fanden wir einige fragwürdige Verkabelungen, die erst mal entfernt wurden.
 Das Technikteam wird in den kommenden Wochen den erforderlichen Sicherheitsstandard herstellen.
@@ -94,7 +94,7 @@ Die restlichen drei NOT-AUS Schalter, wie auch die Deckelschalter werden in Zuku
 
 Arbeiten für die kommenden Dienstage sind: 
 die 3 NOT-AUS Schalter prüfen/verdrahten und Kabel zum Controller verlegen. Deckelschalter prüfen und Kabel zum Controller verlegen. Neue Temperatursensoren kontaktieren und montieren. Kleinnetzteil für den Safety-Controller montieren und Anschlüsse vorbereiten.
-Ein Spannungsversorgungstrennrelais für die X- und Y-Achse muss auch noch installiert werden, dies wird massgeblich durch die Deckelschalter aktiviert.
+Ein Spannungsversorgungstrennrelais für die X- und Y-Achse muss auch noch installiert werden, dies wird maßgeblich durch die Deckelschalter aktiviert.
 Auch das Kabel für  den Luftkompressor und den Kühler muss ausgetauscht werden.
 Dann muss der modifizierte Safety-Controller und auch der RFID-Controller wieder installiert und angeschlossen werden.
 Danach wird dann der System-Debug gestartet.
