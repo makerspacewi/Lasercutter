@@ -78,7 +78,7 @@ Es gibt einen neuen [Schaltplan (neu)](doc/Schaltpläne_gr_LasercutterV6.pdf), d
 <h3>Dienstag der 10.11.2020</h3>
 
 Leider wurde der GLC noch nicht gereinigt. Auch fanden wir gestern eine nachträglich eingebrachte Versorgungsleitung bestehend aus einem Niedrigspannungssignalkabel, um den großen Luftkompressor und den aktiven Kühler zu versorgen. Ein absolutes ‘No Go’ und muß nachgebesert werden.
-
+![Kabel](doc/IMG_7355.jpg)
 Im Spannungsversorgungsprimärbereich fanden wir einige fragwürdige Verkabelungen, die erst mal entfernt wurden.
 Das Technikteam wird in den kommenden Wochen den erforderlichen Sicherheitsstandard herstellen.
 Vielen Dank an Klaus F. und bei Michael H. für die tatkräftige Hilfe.
