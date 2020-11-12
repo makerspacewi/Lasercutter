@@ -26,7 +26,7 @@ Dort findet ihr:
 
 <h2>Notwendige Arbeiten am großen Laser Cutter</h2>
 19.10.2020<br>
-Am Dienstag den 13.10.2020 hat sich das Technik-Team die Angelegenheit angeschaut und festgestellt, dass noch einige sicherheitsrelevante Änderungen durchgefhrt werden müssen.
+Am Dienstag den 13.10.2020 hat sich das Technik-Team die Angelegenheit angeschaut und festgestellt, dass noch einige sicherheitsrelevante Änderungen durchgeführt werden müssen.
 
 Der Technik-Vorstand hat festgelegt, dass keine Mitglieder für den GLC freigegeben werden dürfen, bis die im folgenden beschriebenen Änderungen ausgeführt sind.
 
