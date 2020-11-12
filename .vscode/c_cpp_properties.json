@@ -9,11 +9,8 @@
             "includePath": [
                 "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/include",
                 "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/src",
-                "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/TaskScheduler-master/src",
-                "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
                 "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/Servo/src",
-                "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                 "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/DallasTemperature",
                 "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/OneWire",
                 "/Users/dieter/.platformio/packages/framework-arduino-avr/cores/arduino",
@@ -34,6 +31,9 @@
                 "/Users/dieter/.platformio/lib/TaskScheduler/src",
                 "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                 "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 "/Users/dieter/.platformio/packages/tool-unity",
                 ""
             ],
@@ -42,11 +42,8 @@
                 "path": [
                     "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/include",
                     "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/src",
-                    "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/TaskScheduler-master/src",
-                    "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
                     "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/Servo/src",
-                    "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                     "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/DallasTemperature",
                     "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/lib/OneWire",
                     "/Users/dieter/.platformio/packages/framework-arduino-avr/cores/arduino",
@@ -67,6 +64,9 @@
                     "/Users/dieter/.platformio/lib/TaskScheduler/src",
                     "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                     "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/Users/dieter/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     "/Users/dieter/.platformio/packages/tool-unity",
                     ""
                 ]

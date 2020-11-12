@@ -73,3 +73,32 @@ Zugangssteuerung und Controller wurde ausgebaut.
 ![Controller_1](doc/IMG_7328.jpg)
 Plan ist es diese innerhalb von 2 Wochen umzubauen und einem Labor Debug zu unterziehen.
 Es gibt einen neuen [Schaltplan (neu)](doc/Schaltpläne_gr_LasercutterV6.pdf), da der Maschinenschalter erhalten bleiben soll.
+
+
+<h3>Dienstag der 10.11.2020</h3>
+
+Leider wurde der GLC immer noch nicht gereinigt. Auch fanden wir gestern eine nachträglich eingebrachte Versorgungsleitung bestehend aus einem Niedrigspannungssignalkabel, um den großen Luftkompressor und den aktiven Kühler zu versorgen. Ein absolutes ‘No Go’ und muß nachgebesert werden.
+
+Im Spannungsversorgungsprimärbereich fanden wir einige fragwürdige Verkabelungen, die erst mal entfernt wurden.
+Das Technikteam wird in den kommenden Wochen den erforderlichen Sicherheitsstandard herstellen.
+Vielen Dank an Klaus F. und bei Michael H. für die tatkräftige Hilfe.
+Entfernt wurde der komplette Spannungsversorgungsprimärbereich, der Maschinenschalter wurde separiert und vom Not-Aus Kreis getrennt.
+
+Ein neues Solid State Relais (SSR) wurde montiert, dieses wird in Zukunft die Haupversorgungsspannung durch den ‘Safety-Controller’ anlegen und trennen.
+
+Von der 230V CEE Steckdose wurde ein Kabel in den ‘Maschinenraum’ geführt.
+Von dort ein Kabel (L-Leiter über das SSR) zum Maschinenschalter geführt, der bei manueller Auslösung oder Stromausfall sowohl L- als auch N-Leiter trennt.
+Damit wurde der Maschinenschalter erhalten und wird in Zukunft - nach dem einloggen - den GLC einschalten.
+Im Notfall (und nur dann) kann über den Maschinenschalter ein NOT-AUS gemacht werden.
+Die restlichen drei NOT-AUS Schalter, wie auch die Deckelschalter werden in Zukunft durch den ‘Safety Controller’ abgefragt.
+
+Arbeiten für die kommenden Dienstage sind: 
+die 3 NOT-AUS Schalter prüfen/verdrahten und Kabel zum Controller verlegen. Deckelschalter prüfen und Kabel zum Controller verlegen. Neue Temperatursensoren kontaktieren und montieren. Kleinnetzteil für den Safety-Controller montieren und Anschlüsse vorbereiten.
+Ein Spannungsversorgungstrennrelais für die X- und Y-Achse muss auch noch installiert werden, dies wird massgeblich durch die Deckelschalter aktiviert.
+Auch das Kabel für  den Luftkompressor und den Kühler muss ausgetauscht werden.
+Dann muss der modifizierte Safety-Controller und auch der RFID-Controller wieder installiert und angeschlossen werden.
+Danach wird dann der System-Debug gestartet.
+
+Gute Neuigkeiten: Der Michael M. hat die Platinenumbauten weitestgehend abgeschlossen und die neue Testsoftware läuft bereits im Labor.
+
+An dieser Stelle nochmals unsere Bitte an das Laser Team die Maschine mal gründlich zu reinigen.
