@@ -13,6 +13,7 @@
             "request": "launch",
             "name": "PIO Debug",
             "executable": "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/.pio/build/pro16MHzatmega328/firmware.elf",
+            "projectEnvName": "pro16MHzatmega328",
             "toolchainBinDir": "/Users/dieter/.platformio/packages/toolchain-atmelavr/bin",
             "preLaunchTask": {
                 "type": "PlatformIO",
@@ -25,6 +26,7 @@
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
             "executable": "/Users/dieter/github/Big Laser Cutter/Lasercutter-gross-150W/.pio/build/pro16MHzatmega328/firmware.elf",
+            "projectEnvName": "pro16MHzatmega328",
             "toolchainBinDir": "/Users/dieter/.platformio/packages/toolchain-atmelavr/bin",
             "internalConsoleOptions": "openOnSessionStart"
         }
