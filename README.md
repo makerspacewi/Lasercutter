@@ -104,7 +104,7 @@ Danach wird dann das System-Debug gestartet.
 Gute Neuigkeiten: Der Michael M. hat die Platinenumbauten weitestgehend abgeschlossen und die neue Testsoftware läuft bereits im Labor.
 
 An dieser Stelle nochmals unsere Bitte an das Laser Team die Maschine mal gründlich zu reinigen.
-h3>Dienstag der 17.11.2020</h3>
+<h3>Dienstag der 17.11.2020</h3>
 Dank an Michael H. für die großartige Unterstützung
 <h4>Sicherheitsmaßnahmen ausgeführt:</h4>
 - 230V AC Kabel für großen Luftkompressor und den aktiven Kühler gegen ein legitimes Netzkabel ausgetauscht
