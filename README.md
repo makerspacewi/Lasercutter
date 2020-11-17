@@ -108,8 +108,8 @@ An dieser Stelle nochmals unsere Bitte an das Laser Team die Maschine mal gründ
 Dank an Michael H. für die großartige Unterstützung
 <h4>Sicherheitsmaßnahmen ausgeführt:</h4>
 
-- 230V AC Kabel für großen Luftkompressor und den aktiven Kühler gegen ein legitimes Netzkabel ausgetauscht
-- 'fliegende' Verteilerdose an Wand montiert
+  - 230V AC Kabel für großen Luftkompressor und den aktiven Kühler gegen ein legitimes Netzkabel ausgetauscht
+  - 'fliegende' Verteilerdose an Wand montiert
 
 Desweiteren haben wir
 - die Aufnahmevorrichtung für das Kleinnetzteil montiert
