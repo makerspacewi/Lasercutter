@@ -104,3 +104,15 @@ Danach wird dann das System-Debug gestartet.
 Gute Neuigkeiten: Der Michael M. hat die Platinenumbauten weitestgehend abgeschlossen und die neue Testsoftware läuft bereits im Labor.
 
 An dieser Stelle nochmals unsere Bitte an das Laser Team die Maschine mal gründlich zu reinigen.
+h3>Dienstag der 17.11.2020</h3>
+Dank an Michael H. für die großartige Unterstützung
+<h4>Sicherheitsmaßnahmen ausgeführt:</h4>
+- 230V AC Kabel für großen Luftkompressor und den aktiven Kühler gegen ein legitimes Netzkabel ausgetauscht
+- 'fliegende' Verteilerdose an Wand montiert
+
+Desweiteren haben wir
+- die Aufnahmevorrichtung für das Kleinnetzteil montiert
+- das Netzkabel für das Kleinnetzteil kontaktiert
+- Ansteuerkabel für das Haupt-SSR kontaktiert
+- NOT-AUS Relais für X- und Y-Spannungsversorgung in den Versorgungsstrang eingebracht und Ansteuerkabel kontaktiert. Das Relais-Gehäuse muss noch auf der Holzplatte befestigt werden.
+
