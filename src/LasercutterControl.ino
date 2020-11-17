@@ -1,40 +1,43 @@
 /* DESCRIPTION
   ====================
   Code for machine control over RFID
-  written by: Dieter Haude
+  written by: Dieter Haude 
   reading IDENT from xBee, retrait sending ...POR until time responds
   add current control
-
-  Commands to RFID4Lasercutter
-  'laser;por' - Lasercutter power on reset
-  's2l;12.0;34.0;67.0;xxx890x'
-  's2d'     - Send 2 Display
-  '00.0'    - Temperatur Vorlauf °C
-  '00.0'    - Temperatur Rücklauf °C
-  '00.0'    - Flowmeter value l/min
-  'xxx890x' =:
-  'las.dis' - Laser disabled
-  'las.ena' - Laser enabled
-  'dtt00.0' - Disabled Temperatur Tube to high, Temp
-
+ 
   Commands from RFID4Lasercutter
-  'laser;ok'- Lasercutter on?
+  'lacu,sd' - Ident started?
+  'lacu;ok' - Ident on?
+  'lacu;em' - Ident error message?
   'lsdis'   - Laser disable
   'lsena'   - Laser enable
-  'vLsOn'   - Visual Laser on
-  'vLsOf'   - Visual Laser off
   'ok'      - Handshake return
 
-  last change: 27.09.2018 by Michael Muehl
-  changed: communication lasercutter with RFID started,
-  added LED13 as indikator for OK-handsake 
-*/
-#define Version "6.2"
+  Commands to RFID4Lasercutter
+  'lacu'      - LAserCUtter =Ident
+  'por'       - machine power on reset (LCIdent;por)
+  'err'       - bus error ocurse
+  'sdv;00.0'  - Send Display Temperatur Vorlauf °C
+  'sdr;00.0'  - Send Display Temperatur Rücklauf °C
+  'sdf;00.0'  - Send Display Flowmeter value l/min
+  'msl;x'     - message Laser enabled 1 = active (displayed as las.ena / las.dis)
+  'mse;x'     - message Emergency stop 1 = active
+  'msc;x'     - message Cover positon 1 = open
+  'msp;x'     - message power on 1 = switch on and voltage ok
 
+  'er0;Vorlauf? DS18B20' - no sensor avilable
+  'er1;Rueckl.? DS18B20' - no sensor avilable
+
+  last change: 11.11.2020 by Michael Muehl
+  changed: communication lasercutter with Serial,
+  switch lasercutter on and off, incert emergency stop
+*/
+#define Version "7.0" // (Test =7.x ==> 7.1)
+
+#include <Arduino.h>
 #include <TaskScheduler.h>
 
 // Lasercutter --------
-#include <Servo.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
 #define TEMPERATURE_PRECISION 9
@@ -42,183 +45,194 @@
 // PIN Assignments
 // RFID Control -------
 // Lasercutter --------
-#define FLOWMETER    2  // input Flow Meter
-#define SERVO        3  //~ Servo Motor for visible laser
+#define FLOWMETER    2  // input Flow Meter [INT0]
+#define COVER        3  //~ input lasercutter cover open / closed [int1]
 #define FANSPEED     5  //~ PWM - this pin will drive the FET for the cooling fan
 #define OWB          6  //~ 1-Wire Bus
-#define VLASER       7  // Visual Laser control
+#define EMERGENCY    7  // input emergency stop (motors)
+#define LCPOWERUP    9  // input switch POWER on (HIGH) [from RFID]
+#define SSR_Machine A2  // SSR Machine on / off  (Laser)
+#define POWERV      A3  // SSR Machine on / off  (Laser)
 // Machine control (Laser Control)
 #define ENALaser    A0  // Enable Laser (Optokoppler)
 #define SECURITY    A1  // Security enable LaserNT (Optokoppler)
 
 #define BUSError     8  // Bus error
-#define LCControl    9  // SSR Machine on / off  (Machine) [not used, only serial]
-#define waitOK      13  // wait for answer: OK
+#define signIP      13  // Debug signal (ok)
 
 // Lasercutter --------------
 // TempSensoren
-#define indexVL 0         // Vorlauf Temp.
-#define indexRL 1         // Rücklauf Temp.
-#define indexLT 2         // LaserTube Temp.
-
-#define vLaserMaxOn 15000 // ms (Wartezeit zum Visuallaser abschalten =vLaserMaxOn/butTime)
-
-// Servo Pos
-#define laserONpos   1800 // 1330 Servo home position    changed by E.Terelle on 29.1
-#define laserOFFpos  1330 // 1720 Servo end position     changed by E.Terelle on 29.1
-
-// DEFINES
-#define butTime       500 // ms Tastenabfragezeit
-#define SECONDS      1000 // multiplier for second
-#define servoOfftime  750 // ms wait before servo is deatched
+#define indexVL 0       // Vorlauf Temp.
+#define indexRL 1       // Rücklauf Temp.
 
 // CREATE OBJECTS
 Scheduler runner;
 
 // Lasercutter ---------
 OneWire  ds(OWB); // on pin 10 (a 4.7K resistor is necessary)
-Servo myservo;    // create servo object to control a servo
 DallasTemperature sensors(&ds);
 // arrays to hold device addresses
-DeviceAddress tempSensV, tempSensR, tempSensK;
+DeviceAddress tempSensV, tempSensR;
 
 // Callback methods prototypes
-void ControlLaser();       // Task for Mainfunction
-void BlinkCallback();   // Task to let LED blink - added by D. Haude 08.03.2017
+void ControlLaser();         // Task for Mainfunction
+void BlinkCallback();        // Task to let LED blink - added by D. Haude 08.03.2017
 
 // Lasercutter ---------
-void FlowCallback();  // Task to calculate Flow Rate - added by D. Haude 08.03.2017
-void TempCallback();  // Task to read temps - added by M. Muehl 15.03.2017
-void SvOfCallback();  // Task to deattach servo - added by M. Muehl 08.03.2017
-void DispCallback();  // Task to dislpay values - added by M. Muehl 08.03.2017
+void FlowCallback();         // Task to calculate Flow Rate - added by D. Haude 08.03.2017
+void TempCallback();         // Task to read temps
+void Send2DispCallback();    // Task to send dislpay values
+void Send4MesaCallback();    // Task to send messages
 
-void servo2pos(int);
 void dispPARAM();
 
 // TASKS
-Task tM(butTime, TASK_FOREVER, &ControlLaser);
-Task tB(5000, TASK_FOREVER, &BlinkCallback); //added M. Muehl
+Task tM(TASK_SECOND / 10 +2, TASK_FOREVER, &ControlLaser); // 100ms main task
+Task tB(TASK_SECOND * 5, TASK_FOREVER, &BlinkCallback);    // 5000ms added M. Muehl
 
 // Lasercutter --------------
-Task tF(1000, TASK_FOREVER, &FlowCallback);
-Task tT(1,    TASK_ONCE,    &TempCallback);
-Task tS(1,    TASK_ONCE,    &SvOfCallback);
-Task tD(1,    TASK_ONCE,    &Send2DispCallback);
+Task tFL(TASK_SECOND, TASK_FOREVER, &FlowCallback);
+Task tTP(1, TASK_ONCE, &TempCallback);
+Task tSD(1, TASK_ONCE, &Send2DispCallback);
+Task tSM(1, TASK_ONCE, &Send4MesaCallback);
 
 // VARIABLES
+// Lasercutter ------------------------
+String IDENT = "LACU";  // Machine identifier for LAserCUtercontroller
+
+// POWER voltage check -
 unsigned long val;
-unsigned int timer = 0;
-boolean onTime = false;
-int minutes = 0;
-bool toggle = false;
+int valPOW =  0;        // value POWER
+int powOK = 475;        // power voltage > 11.5V
 
-// Lasercutter ---------
-// Temperature Control
-float tempMV;             // Temperature Measure Value
-float tempV;              // Temperature Vorlauf (V)
-float tempR;              // Temperature Rücklauf (R)
-float tempK = 15.0;       // Temperature Kathode (K) - added by D.Haude on 27.01.2017
-float tdif = 0;           // Temperature Difference VL - RL
-const float ttar = 25.0;  // Target Temperatur
-const float tmax = 40.0;  // Max. Temperatur (40.0) -> turn relais off if exceeded
-const float ttub = 40.0;  // Max. Temperatur (40.0) for Tube (Kathode)
-const int  slope = 25;    // slope for cooling fan speed calculation
+// Sensors -------------
+int numberOfDevices;         // Number of temperature devices found
+boolean sensorsERR = true;   // Sensor for temperature or flow has wrong values
 
-// Flow Control
-float flowRate; // represents Liter/minute
-byte sensorInterrupt = 0; // 0 = digital pin 2
-int flowcnt = 0;          // Flowmeter Counter
-const float flowMin =3.0; // value changed by D. Haude on 25.01.2017
+// Temperature Sensors -
+float tempMV;           // Temperature Measure Value
+float tempV;            // Temperature Vorlauf (V)
+float prevtV;           // letzte Temperature Vorlauf (V)
+float tempR;            // Temperature Rücklauf (R)
+float prevtR;           // letzte Temperature Rücklauf (R)
+const float ttar = 25;  // Target Temperatur (Room temperature)
+const float tmax = 40;  // Max. Temperatur (40.0) -> turn relais off if exceeded
+const int slope = 25;   // slope for cooling fan speed calculation
+bool tempSenV = true;
+bool tempSenR = true;
+
+bool tempSensErr = false;  // Temperature sensor error
+bool prevTmpSErr;         // letzter Temperature sensor error
+bool recOK = false;       // send to display ok
+bool firstOK = false;     // first display is send
+
+// Flow Sensor --------------
+float flowRate;              // represents Liter/minute
+float prevflow;              // prevue represents Liter/minute
+byte sensorInterrupt = 0;    // 0 = digital pin 2
+int flowcnt = 0;             // Flowmeter Counter
+const float flowMin = 3.0;   // value changed by D. Haude on 25.01.2017
 // The hall-effect flow sensor outputs approximately 4.5 pulses per second per litre/minute of flow.
 const float calibrationFactor = 4.5;
 
-int numberOfDevices;   // Number of temperature devices found
-int vLaserTime = 0;    // Visual Laser Taster time
-boolean tubeTempErr  = true; // Tube Temp. überschritten
-boolean controlErr   = true; // Control of temp or flow are wrong
+// Messages -----------------
+byte coverInterrupt = 1;     // 1 = digital pin 3
 
-int InterSens = 5000;     // Intervallzeit Sensors
-unsigned long prevSens;   // jetziger Zeitstempel Sensors
+boolean LaserCuReady = false; // Lasercutter is ready
+boolean EnableLaser = false;  // Laser is ready to burn
+boolean laserEnab = false;    // laser can be enabled
+boolean prevLaser = true;     // previous laser
 
-// Handshake with RFID4Lasercutter:
-boolean recOK        = false; // received OK
-boolean LaserPowerOn = false; // Power On Reset set
-boolean EnableLaser  = false; // Laser is ready to burn
-boolean VisualLaser  = false; // Visual Laser is active? (True)
+boolean emergSTOP;      // emergency stop = true (opto = no current)
+boolean prevEmerg;      // previous emergency
+boolean coverPOSC;      // cover position closed = false (opto = current)
+boolean prevCover;      // previous cover position (changed?)
+boolean powerLCON;      // lasercutter is powered on
+boolean prevPowON;      // previous power on
+boolean powerLCUP;      // power lasercutter up
 
 // Serial
-String inStr = "";  // a string to hold incoming data
+String inStr = "";      // a string to hold incoming data
 
 // ======>  SET UP AREA <=====
 void setup() {
   // initialize:
-  Serial.begin(9600);  // Serial
-  inStr.reserve(30);    // reserve for instr serial input
+  Serial.begin(9600);   // Serial
+  inStr.reserve(40);    // reserve for instr serial input
 
   sensors.begin();      // Sensoren (Temp)
 
   // PIN MODES
   pinMode(BUSError, OUTPUT);
+  pinMode(SSR_Machine, OUTPUT);
 
-// Lasercutter ---------
+  // Lasercutter ---------
   pinMode(FLOWMETER, INPUT_PULLUP);
-  pinMode(VLASER, OUTPUT);
+  pinMode(COVER, INPUT_PULLUP);
+  pinMode(EMERGENCY, INPUT_PULLUP);
   pinMode(FANSPEED, OUTPUT);
   pinMode(SECURITY, OUTPUT);
-  pinMode(SERVO, OUTPUT);
   pinMode(ENALaser, OUTPUT);
+
+  digitalWrite(SECURITY, HIGH); // Attention! Reversed Logic High = NOT SAVE, LOW = SAVE
+  digitalWrite(ENALaser, HIGH); // Attention! Reversed Logic High = NOT SAVE, LOW = SAVE
+  analogWrite(FANSPEED, 0);     // set initial fan speed to 0%
 
   // Set default values
   digitalWrite(BUSError, HIGH);	// turn the LED ON (init start)
-  digitalWrite(waitOK, HIGH);	  // turn the LED ON (init start)
-
-// Lasercutter ---------
-  digitalWrite(SECURITY, HIGH); // Attention! Reversed Logic High = NOT SAVE, LOW = SAVE
-  digitalWrite(ENALaser, HIGH); // Attention! Reversed Logic High = NOT SAVE, LOW = SAVE
-  analogWrite(FANSPEED, 0);	    // set initial fan speed to 0%
-  digitalWrite(VLASER, LOW);	  // set VLaser off
+  digitalWrite(SSR_Machine, LOW);
 
   runner.init();
   runner.addTask(tM);
   runner.addTask(tB);
 
-// Lasercutter ---------
-  runner.addTask(tF);
-  runner.addTask(tT);
-  runner.addTask(tD);
-  runner.addTask(tS);
+  // Lasercutter ---------
+  runner.addTask(tFL);
+  runner.addTask(tTP);
+  runner.addTask(tSD);
+  runner.addTask(tSM);
 
+  // Check 1Wire sensors
   numberOfDevices = sensors.getDeviceCount();
-  // 1Wire mit slave vorhanden
-  if (numberOfDevices >=2) {
-    // method 1: by index
-    if (!sensors.getAddress(tempSensV, indexVL)) Serial.println("No Device V");
-    if (!sensors.getAddress(tempSensR, indexRL)) Serial.println("No Device R");
-    if (!sensors.getAddress(tempSensK, indexLT) && numberOfDevices ==3) Serial.println("Unable to find address for Device K");
 
-    // set the resolution to 9 bit per device
-    sensors.setResolution(tempSensV, TEMPERATURE_PRECISION);
-    sensors.setResolution(tempSensR, TEMPERATURE_PRECISION);
-    if (numberOfDevices ==3) sensors.setResolution(tempSensK, TEMPERATURE_PRECISION);
+  // set the resolution to 9 bit per device
+  sensors.setResolution(tempSensV, TEMPERATURE_PRECISION);
+  sensors.setResolution(tempSensR, TEMPERATURE_PRECISION);
 
-    servo2pos(laserONpos);
+  attachInterrupt(digitalPinToInterrupt(FLOWMETER), pulseCounter, FALLING);
+  attachInterrupt(digitalPinToInterrupt(COVER), posCover, CHANGE);
 
-    attachInterrupt(sensorInterrupt, pulseCounter, FALLING);
-
-    tF.enable();
-    delay(2000);  // wait for power on
-    digitalWrite(waitOK, LOW);	  // turn the LED ON (init start)
-    Serial.println("LASER;POR");
-    tM.enable();
-  } else {
-    tB.enable();  // enable Task Error blinking
-    tB.setInterval(SECONDS);
+  // set all values for power up
+  // method 1: by index
+  if (!sensors.getAddress(tempSensV, indexVL))
+  {
+    tempSenV = false;
+    tempSensErr = true;
   }
+  if (!sensors.getAddress(tempSensR, indexRL))
+  {
+    tempSenR = false;
+    tempSensErr = true;
+  }
+
+  emergSTOP = digitalRead(EMERGENCY);
+
+  coverPOSC = digitalRead(COVER);
+
+  powerLCUP = digitalRead(LCPOWERUP);
+ 
+  valPOW = analogRead(POWERV);
+
+  if (valPOW > powOK && powerLCUP) powerLCON = true;
+  else powerLCON = false;
+ 
+  tFL.enable();
+  tM.enable();
 }
 
 // FUNCTIONS (Tasks) ----------------------------
 void ControlLaser() {   // 500ms Tick
-  if (LaserPowerOn) LaserControl();
+  if (LaserCuReady) LaserControl();
 }
 
 void BlinkCallback() {
@@ -231,118 +245,187 @@ void FlowCallback() {
   sensors.requestTemperatures();  // start temperature measurement
   flowRate = flowcnt / calibrationFactor; // result in l/min
   flowcnt = 0;
-  tT.restartDelayed(50);
+  tTP.restartDelayed(50);
 }
 
 void TempCallback() {
-  // --Temperaturmessung T1 + T2 + T3
+  // --Temperaturmessung T1 + T2
   tempMV = sensors.getTempC(tempSensV);
-  if (tempMV != -127.00) tempV = tempMV;
-  tempMV = sensors.getTempC(tempSensR);
-  if (tempMV != -127.00) tempR = tempMV;
-  tdif = tempR - tempV;
-  if (numberOfDevices ==3) {
-    tempK = sensors.getTempC(tempSensK);
+  if (tempMV == -127.00) {
+    tempV = 99.9;
+    tempSensErr = true;
+  } else {
+    tempV = tempMV;
+    tempSensErr = false;
   }
-  // Check Errors ------
-  if (max(tempR,tempV) >= tmax || flowRate < flowMin) controlErr = true;
-  else controlErr = false;
-  if (tempK > ttub) tubeTempErr = true;
-  else tubeTempErr = false;
-  // Set Fan speed
-  analogWrite(FANSPEED, speed());   // set appropriate fan speed
+  tempMV = sensors.getTempC(tempSensR);
+  if (tempMV == -127.00) {
+    tempR = 99.9;
+    tempSensErr = true;
+  } else {
+    tempR = tempMV;
+    if (tempV < 99.9) tempSensErr = false;
+  }
 
-  if (recOK) tD.restartDelayed(50);
+  // Check temperature and flow -------
+  if (max(tempR, tempV) >= tmax || flowRate < flowMin || tempSensErr)
+    sensorsERR = true;
+  else 
+  {
+    sensorsERR = false;
+    analogWrite(FANSPEED, speed()); // set appropriate fan speed
+  }
+
+  if (recOK) {
+    tSD.restartDelayed(50);
+  }
 }
 
-void Send2DispCallback() {
-  // --Display all
-  digitalWrite(waitOK, HIGH);
-  Serial.print("s2d");
-  Serial.print(";" + String(tempV,1));
-  Serial.print(";" + String(tempR,1));
-  if (flowRate > 99.90) flowRate = 99.9;
-  String txtVal = String(flowRate,1);
-  if (txtVal.length() < 4) txtVal =  " " + txtVal;
-  Serial.print(";" + txtVal);
-  if(!digitalRead(SECURITY) && !digitalRead(ENALaser) && (tubeTempErr == false))
+void Send4MesaCallback()
+{
+  // Serial.println("Bool: " + String(tempSensErr) + String(sensorsERR) + String(emergSTOP) + String(coverPOSC) + String(powerLCON) + String(powerLCUP) + String(EnableLaser)); // show first display
+  if (firstOK)
   {
-    Serial.println(";" + String("Las.ENA"));
-  } else if (tubeTempErr == false) {
-    Serial.println(";" + String("Las.DIS"));
-  } else {
-    Serial.println(";" + String(tempK,1));
+    // -- send messages for temp. sen. error -----
+    if (tempSensErr != prevTmpSErr)
+    {
+      Serial.println("mse;" + String(tempSensErr));
+      prevTmpSErr = tempSensErr;
+    }
+
+    // -- send messages for display -----
+    if (laserEnab != prevLaser)
+    {
+      Serial.println("msl;" + String(laserEnab));
+      prevLaser = laserEnab;
+    }
+
+    if (coverPOSC != prevCover)
+    {
+      Serial.println("msc;" + String(coverPOSC));
+      prevCover = coverPOSC;
+    }
+
+    if (powerLCON != prevPowON)
+    {
+      Serial.println("msp;" + String(powerLCON));
+      prevPowON = powerLCON;
+    }
+
+    if (emergSTOP != prevEmerg)
+    {
+      if (powerLCON)
+      {
+        Serial.println("mss;" + String(emergSTOP));
+      }
+      else
+      {
+        Serial.println("mss;0"); // simulate no emergency if no power
+      }
+      prevEmerg = emergSTOP;
+    }
+  }
+}
+
+void Send2DispCallback()
+{
+  // -- send values to display --------
+  if (tempV != prevtV)
+  {
+    Serial.println("sdv;" + String(tempV, 1));
+    prevtV = tempV;
+  }
+
+  if (tempR != prevtR)
+  {
+    Serial.println("sdr;" + String(tempR, 1));
+    prevtR = tempR;
+  }
+
+  if (flowRate != prevflow)
+  {
+    if (flowRate > 99.90)
+      flowRate = 99.9;
+    String txtVal = String(flowRate, 1);
+    if (txtVal.length() < 4)
+      txtVal = " " + txtVal;
+    Serial.println("sdf;" + txtVal);
+    prevflow = flowRate;
   }
   recOK = false;
-}
-
-void SvOfCallback() {
-  // --Servo off
-  if (myservo.attached() == true) {
-    myservo.detach(); //added M. Muehl detach after longer time on 15.2.2017
-    digitalWrite(VLASER, VisualLaser); // turn on vl
-  }
 }
 // END OF TASKS ---------------------------------
 
 // FUNCTIONS ------------------------------------
 // Lasercutter ------------------------
-void LaserControl() {
-  // check no error -------------------
-  if (!controlErr && EnableLaser) {
-    if (digitalRead(SECURITY)) digitalWrite(SECURITY, LOW);
-    if (VisualLaser) {
-      if(!digitalRead(ENALaser)) {
-        digitalWrite(ENALaser, HIGH);  // turn LASER ENABELE OFF
-        servo2pos(laserONpos);
-      }
-      if(vLaserTime == vLaserMaxOn/butTime) {
-        digitalWrite(VLASER, LOW);
-      } else {
-        vLaserTime++;
-      }
-    } else {
-      if(digitalRead(ENALaser)) {
-        digitalWrite(ENALaser, LOW); // turn LASER ENABELE ON
-        servo2pos(laserOFFpos);
-      }
-      vLaserTime = 0;
+void LaserControl()
+{
+  // POWER value ----------------------
+  valPOW = analogRead(POWERV);
+  // emergency stop -------------------
+  emergSTOP = digitalRead(EMERGENCY);
+  // Lasercutter powered UP -----------
+  powerLCUP = digitalRead(LCPOWERUP);
+  // Lasercutter powered ON -----------
+  if (powerLCUP)
+  {
+    digitalWrite(SSR_Machine, HIGH);
+    if (valPOW > powOK) powerLCON = true;
+    else powerLCON = false;
+  }
+  else
+  {
+    digitalWrite(SSR_Machine, LOW);
+    powerLCON = false;
+  }
+
+  // Lasercut enabled? ----------------
+  if (!tempSensErr && !sensorsERR && !emergSTOP && !coverPOSC && powerLCON && EnableLaser)
+  {
+     if (digitalRead(SECURITY))
+       digitalWrite(SECURITY, LOW);
+     if (digitalRead(ENALaser))
+     {
+       digitalWrite(ENALaser, LOW); // turn LASER ENABELE ON
+     }
+     laserEnab = HIGH;
+  }
+  else
+  {
+    // disable lasercut
+    if (!digitalRead(SECURITY) || !digitalRead(ENALaser))
+    {
+      digitalWrite(SECURITY, HIGH); // Output off
+      digitalWrite(ENALaser, HIGH); // turn off SECURITY Relais
     }
-  } else {
-    shutdownLaser();
+    laserEnab = LOW;
   }
+  tSM.restartDelayed(10);
 }
 
-void shutdownLaser() {
-  // reset all values for lasercutter
-  if(!digitalRead(SECURITY) || !digitalRead(ENALaser)) {
-    digitalWrite(SECURITY, HIGH); // Output off
-    digitalWrite(ENALaser, HIGH); // turn off SECURITY Relais
-    servo2pos(laserONpos);
-    digitalWrite(VLASER, LOW);
-    VisualLaser = LOW;
-  }
+void posCover()
+{
+  // cover position -------------------
+  coverPOSC = digitalRead(COVER);
+  LaserControl();
 }
 
-void pulseCounter() {
+void pulseCounter()
+{
   flowcnt++;
 }
 
-int speed() {
-  float dif=tempV-ttar;
-  if(dif > 0) {
-    return constrain((dif) * slope, 10, 255);  // (temperature to tube - target temp) * slope - limited to 10 - 255
-  } else {
+int speed()
+{
+  float dif = tempV - ttar;
+  if (dif > 0)
+  {
+    return constrain((dif)*slope, 10, 255); // (temperature to tube - target temp) * slope - limited to 10 - 255
+  }
+  else
+  {
     return 0;
   }
-}
-
-void servo2pos(int val) {
-//  Servo set Pos
-  digitalWrite(VLASER, LOW); // turn off vl
-  if (myservo.attached() == false) myservo.attach(SERVO, 1000, 2000);  //changed D. Haude and M. Muehl
-  myservo.writeMicroseconds(val);  // tell servo to go to position in variable 'pos'changed by E.Terelle on 29.1
-  tS.restartDelayed(servoOfftime);
 }
 // End Funktions --------------------------------
 
@@ -350,11 +433,45 @@ void servo2pos(int val) {
 void evalSerialData() {
   inStr.toUpperCase();
 
-  if (inStr.startsWith("LASER")) {
-    if (inStr.substring(6) == "OK") {
-      LaserPowerOn = true;
-      digitalWrite(BUSError, LOW);	// turn the LED OFF
-      digitalWrite(waitOK, HIGH);	  // wait for ok
+  delay(TASK_SECOND / 5);
+  if (inStr.startsWith(IDENT))
+  {
+    if (inStr.endsWith("SD")) // StarteD
+    {
+      LaserCuReady = false;
+      prevTmpSErr = !tempSensErr;
+      prevEmerg = !emergSTOP;
+      prevCover = !coverPOSC;
+      prevPowON = !powerLCON;
+      prevtV = 00.0;
+      prevtR = 00.0;
+      prevflow = 00.0;
+      firstOK = false;
+      if (numberOfDevices == 2)
+      {
+        Serial.println("LACU;POR");
+      }
+      else
+      {
+        Serial.println("LACU;ERR");
+      }
+    }
+    else if (inStr.endsWith("EM"))
+    {
+      LaserCuReady = false;
+      if (!tempSenV)
+      {
+        Serial.println("ER0;Vorlauf?     DS18B20");
+      }
+      if (!tempSenR)
+      {
+        Serial.println("ER1;Ruecklauf.?  DS18B20");
+      }
+    }
+    else if (inStr.endsWith("OK"))
+    {
+      LaserCuReady = true;
+      digitalWrite(BUSError, LOW); // turn the LED OFF
     }
   }
 
@@ -362,13 +479,9 @@ void evalSerialData() {
 
   if (inStr.equals("LSDIS")) EnableLaser = false;
 
-  if (inStr.equals("VLSON")) VisualLaser = true;
-
-  if (inStr.equals("VLSOF")) VisualLaser = false;
-
   if (inStr.equals("OK")) {
     recOK = true;
-    digitalWrite(waitOK, LOW);
+    firstOK = true;
   }
 }
 
