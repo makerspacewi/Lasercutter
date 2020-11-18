@@ -117,7 +117,7 @@ Desweiteren haben wir
 - Ansteuerkabel für das Haupt-SSR kontaktiert
 - NOT-AUS Relais für X- und Y-Spannungsversorgung in den Versorgungsstrang eingebracht und Ansteuerkabel kontaktiert. Das Relais-Gehäuse muss noch auf der Holzplatte befestigt werden.
 
-Bleiben nur noch 
+Bleibt nur noch 
 - das Kabel der Deckelschalter zum Anschluss vorbereiten
 - die verbleibenden 3 NOT-AUS Schalter wieder zu verbinden und das Kabel an den Safety-Controller zu führen
 - das Relais-Gehäuse auf der Holzplatte zu fixieren und in den Deckel ein kleines Loch zu bohren, damit man die verbaute LED sehen kann
