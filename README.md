@@ -122,4 +122,4 @@ Bleibt nur noch
 - die verbleibenden 3 NOT-AUS Schalter wieder zu verbinden und das Kabel an den Safety-Controller zu führen
 - das Relais-Gehäuse auf der Holzplatte zu fixieren und in den Deckel ein kleines Loch zu bohren, damit man die verbaute LED sehen kann
 
-Danach können die modifizierten Safety-Controller und Zugangs-Controller wieder eingebaut werden und mit dem System Debug begonnen werde.
+Danach können die modifizierten Safety-Controller und Zugangs-Controller wieder eingebaut und mit dem System Debug begonnen werden.
