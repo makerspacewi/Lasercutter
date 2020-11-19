@@ -1,10 +1,10 @@
 /* DESCRIPTION
   ====================
   Code for machine control over RFID
-  written by: Dieter Haude 
+  written by: Dieter Haude
   reading IDENT from xBee, retrait sending ...POR until time responds
   add current control
- 
+
   Commands from RFID4Lasercutter
   'lacu,sd' - Ident started?
   'lacu;ok' - Ident on?
@@ -220,12 +220,12 @@ void setup() {
   coverPOSC = digitalRead(COVER);
 
   powerLCUP = digitalRead(LCPOWERUP);
- 
+
   valPOW = analogRead(POWERV);
 
   if (valPOW > powOK && powerLCUP) powerLCON = true;
   else powerLCON = false;
- 
+
   tFL.enable();
   tM.enable();
 }
@@ -270,7 +270,7 @@ void TempCallback() {
   // Check temperature and flow -------
   if (max(tempR, tempV) >= tmax || flowRate < flowMin || tempSensErr)
     sensorsERR = true;
-  else 
+  else
   {
     sensorsERR = false;
     analogWrite(FANSPEED, speed()); // set appropriate fan speed
@@ -286,11 +286,10 @@ void Send4MesaCallback()
   // Serial.println("Bool: " + String(tempSensErr) + String(sensorsERR) + String(emergSTOP) + String(coverPOSC) + String(powerLCON) + String(powerLCUP) + String(EnableLaser)); // show first display
   if (firstOK)
   {
-    // -- send messages for temp. sen. error -----
-    if (tempSensErr != prevTmpSErr)
+    if (powerLCON != prevPowON)
     {
-      Serial.println("mse;" + String(tempSensErr));
-      prevTmpSErr = tempSensErr;
+      Serial.println("msp;" + String(powerLCON));
+      prevPowON = powerLCON;
     }
 
     // -- send messages for display -----
@@ -306,12 +305,6 @@ void Send4MesaCallback()
       prevCover = coverPOSC;
     }
 
-    if (powerLCON != prevPowON)
-    {
-      Serial.println("msp;" + String(powerLCON));
-      prevPowON = powerLCON;
-    }
-
     if (emergSTOP != prevEmerg)
     {
       if (powerLCON)
@@ -323,6 +316,13 @@ void Send4MesaCallback()
         Serial.println("mss;0"); // simulate no emergency if no power
       }
       prevEmerg = emergSTOP;
+    }
+
+    // -- send messages for temp. sen. error -----
+    if (tempSensErr != prevTmpSErr)
+    {
+      Serial.println("mse;" + String(tempSensErr));
+      prevTmpSErr = tempSensErr;
     }
   }
 }
@@ -362,8 +362,6 @@ void LaserControl()
 {
   // POWER value ----------------------
   valPOW = analogRead(POWERV);
-  // emergency stop -------------------
-  emergSTOP = digitalRead(EMERGENCY);
   // Lasercutter powered UP -----------
   powerLCUP = digitalRead(LCPOWERUP);
   // Lasercutter powered ON -----------
@@ -378,6 +376,8 @@ void LaserControl()
     digitalWrite(SSR_Machine, LOW);
     powerLCON = false;
   }
+  // emergency stop -------------------
+  emergSTOP = digitalRead(EMERGENCY);
 
   // Lasercut enabled? ----------------
   if (!tempSensErr && !sensorsERR && !emergSTOP && !coverPOSC && powerLCON && EnableLaser)
@@ -439,10 +439,10 @@ void evalSerialData() {
     if (inStr.endsWith("SD")) // StarteD
     {
       LaserCuReady = false;
+      prevPowON = !powerLCON;
       prevTmpSErr = !tempSensErr;
       prevEmerg = !emergSTOP;
       prevCover = !coverPOSC;
-      prevPowON = !powerLCON;
       prevtV = 00.0;
       prevtR = 00.0;
       prevflow = 00.0;
