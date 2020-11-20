@@ -24,7 +24,7 @@ Dort findet ihr:
 - [Bisherige Schaltbilder](doc/Schaltpläne_gr_LasercutterV5.pdf), d.h. letztendlich der momentane Zustand
 - [Technik-Team Änderungsvorschlag - aktuell](doc/Schaltpläne_gr_LasercutterV6.pdf), dies sind die Änderungen, die wir zeitnah implementieren werden
 - [RFID4Lasercutter](https://github.com/makerspace-wi/RFID4Lasercutter.git) - hier findet ihr den Sourcecode für den Zugangs-Controller
-
+- [Zum GLC Wiki - Anleitungen](https://github.com/makerspace-wi/Lasercutter-gross-150W/wiki/150W-Großer-Laser-Cutter-Wiki)
 <h2>Notwendige Arbeiten am großen Laser Cutter</h2>
 19.10.2020<br>
 Am Dienstag den 13.10.2020 hat sich das Technik-Team die Angelegenheit angeschaut und festgestellt, dass noch einige sicherheitsrelevante Änderungen durchgeführt werden müssen.
