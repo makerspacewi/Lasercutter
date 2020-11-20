@@ -16,7 +16,7 @@ Die Teams haben über die Monate und Jahre sehr viel gelernt. Oft war die Enttä
 Jetzt - Oktober 2020 - hat der GLC einen mechanisch stabilen Zustand erreicht und eine Nutzung rückt in die Nähe.
 Allerdings sind noch notwendige Arbeiten an Elektrik und Elektronik auszuführen, um alle Sicherheitsaspekte zu erfüllen.
 
-<h1>Control Lasercutter</h1>
+<h1>Control Lasercutter Tagebuch zum aktuellen Umbau</h1>
 Leider wurde der Aufbau vom GLC nicht dokumentiert, aus diesem Grund fehlt hier der Verlauf des Aufbaus über die letzten Jahre.
 Das Technik Team jedoch hat seine Aktivitäten zu Verdrahtung, Zugangs-Controller, Sicherheits-Controller und Software Source Code gut dokumentiert und hier auf Github veröffentlicht. 
 Dort findet ihr:
