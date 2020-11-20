@@ -39,7 +39,7 @@ Der Absauglüfter muss manuell vor dem LASERN nach Vorgabe eingeschaltet werden.
 
 <h2>Vorschlag Technik Team zum Umbau des GLC</h2>
 
-- Die 4 NOT-AUS Schalter - wenn ausgelöst - öffnen ein separates mechanisches Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
+- Die 3 NOT-AUS Schalter - wenn ausgelöst - öffnen ein separates mechanisches Relais, dass die Ausgangsspannung der beiden Motornetzteilen unterbricht, die für die Achsensteuerung zuständig sind.
 ![Relais_1](doc/IMG_20201015_221211.jpg)
 Desweiteren wird 'NOT-AUS' an den Controller gemeldet, der den Laser-Controller deaktiviert.
 - der Stecker des GLC bleibt zukünftig immer in der Steckdose! Ein kleines Netzteil
@@ -64,7 +64,7 @@ Leider lässt sich dieser Prozess nicht automatisieren.
 Das Technikteam hat dazu 2 Möglichkeiten evaluiert:
 
 - einen elektronisch regelbaren	Wechselrichter besorgen und damit den Wechselstrommotor regeln - oder	
-- bevorzugte Variante sind Lüfter mit Gleichstrommotoren (von Automobilradiatoren) einzusetzen, die mittels PWM auch elektronisch geregelt werden können. Diese Regelung ist bereits für den Kühlwasserlüfter in Betrieb.
+- bevorzugte Variante sind Lüfter mit Gleichstrommotoren (von Automobilradiatoren) einzusetzen, die mittels PWM auch elektronisch geregelt werden können. Diese Regelung ist bereits für den Kühlwasserlüfter erprobt.
 
 Bei einer Diskussion mit Brani wurden wir uns einig, dass mehrere Lüfter im Absaugrohr installiert werden sollen. Wie schon oben erwähnt, will Brani diese Arbeiten koordinieren.
 
