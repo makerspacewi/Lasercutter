@@ -124,3 +124,8 @@ Bleibt nur noch
 - das Relais-Gehäuse auf der Holzplatte zu fixieren und in den Deckel ein kleines Loch zu bohren, damit man die verbaute LED sehen kann
 
 Danach können die modifizierten Safety-Controller und Zugangs-Controller wieder eingebaut und mit dem System Debug begonnen werden.
+
+Samstag, der 21.11.2020
+Weitere Verbesserung bezüglich der One Wire Temperatursensoren für Kühlmittel Vor- und Rücklauf 
+
+![IMG_7385](https://user-images.githubusercontent.com/42463588/99875099-42080f00-2bed-11eb-9646-8013de1fd0dd.jpg)
