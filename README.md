@@ -128,6 +128,7 @@ Danach können die modifizierten Safety-Controller und Zugangs-Controller wieder
 <h3>Samstag, der 21.11.2020</h3>
 Weitere Verbesserung bezüglich der One Wire Temperatursensoren für Kühlmittel Vor- und Rücklauf. Die bisherigen Sensoren waren selbst verlötet und 'irgendwie' an der Kühlmittelleitung angebracht. Diese Lösung funktionierte am Anfang gut, hat aber die Umbauarbeiten des Laser Cutter Teams (Lazerboys) leider nicht überlebt - es musste also eine robustere Lösung her. Passend dazu hatte neulich 
 [az-delivery.de](https://az-delivery.de)
+[Zum GLC Wiki - Anleitungen](https://github.com/makerspace-wi/Lasercutter-gross-150W/wiki/150W-Großer-Laser-Cutter-Wiki)
  genau diese Sensoren in einer Edelstahlhülse im Angebot.
 Passend dazu haben wird kurze Edelstahl-Schraubhülsen mit 1/2 Zoll Aussengewinde gefunden, die in ein PCV-T-Stück (noch nicht eingetroffen) geschraubt wird, dass dann in den Kühlmittelfluss, vor und nach der Laserröhre eingebracht wird. In diese Hülsen können dann direkt die Sensoren geschützt fest montiert werden.
 
