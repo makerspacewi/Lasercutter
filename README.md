@@ -126,7 +126,8 @@ Bleibt nur noch
 Danach können die modifizierten Safety-Controller und Zugangs-Controller wieder eingebaut und mit dem System Debug begonnen werden.
 
 <h3>Samstag, der 21.11.2020</h3>
-Weitere Verbesserung bezüglich der One Wire Temperatursensoren für Kühlmittel Vor- und Rücklauf. Die bisherigen Sensoren waren selbst verlötet und 'irgendwie' an der Kühlmittelleitung angebracht. Diese Lösung funktionierte am Anfang gut, hat aber die Umbauarbeiten der <i>Lazerboys</i> leider nicht überlebt - es musste also eine robustere Lösung her. Passend dazu hatte neulich 
+<h4>Weitere Verbesserung bezüglich der One Wire Temperatursensoren für Kühlmittel Vor- und Rücklauf.</h4> 
+Die bisherigen Sensoren waren selbst verlötet und 'irgendwie' an der Kühlmittelleitung angebracht. Diese Lösung funktionierte am Anfang gut, hat aber die Umbauarbeiten der <i>Lazerboys</i> leider nicht überlebt - es musste also eine robustere Lösung her. Passend dazu hatte neulich 
 
 - [az-delivery.de](https://az-delivery.de)
 genau diese Sensoren in einer Edelstahlhülse im Angebot.
