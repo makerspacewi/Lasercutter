@@ -132,6 +132,6 @@ Die bisherigen Sensoren waren selbst verlötet und 'irgendwie' an der Kühlmitte
 [az-delivery.de](https://az-delivery.de/products/2er-set-ds18b20-mit-3m-kabel?_pos=7&_sid=63a3cb1ca&_ss=r)
 
 genau diese Sensoren in einer Edelstahlhülse im Angebot.
-Passend dazu haben wird kurze Edelstahl-Schraubhülsen mit 1/2 Zoll Aussengewinde gefunden, die in ein PCV-T-Stück (noch nicht eingetroffen) geschraubt wird, das dann in den Kühlmittelfluss, vor und nach der Laserröhre eingebracht wird. In diese Hülsen können dann direkt die Sensoren geschützt montiert werden.
+Passend dazu haben wird kurze Edelstahl-Schraubhülsen mit 1/2 Zoll Aussengewinde gefunden, die in ein PVC-T-Stück (noch nicht eingetroffen) geschraubt wird, das dann in den Kühlmittelfluss, vor und nach der Laserröhre eingebracht wird. In diese Hülsen können dann direkt die Sensoren geschützt montiert werden.
 
 ![OW-Temperatrusensoren](https://user-images.githubusercontent.com/42463588/99875099-42080f00-2bed-11eb-9646-8013de1fd0dd.jpg)
