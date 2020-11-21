@@ -127,9 +127,10 @@ Danach können die modifizierten Safety-Controller und Zugangs-Controller wieder
 
 <h3>Samstag, der 21.11.2020</h3>
 <h4>Weitere Verbesserung bezüglich der One Wire Temperatursensoren für Kühlmittel Vor- und Rücklauf.</h4> 
-Die bisherigen Sensoren waren selbst verlötet und 'irgendwie' an der Kühlmittelleitung angebracht. Diese Lösung funktionierte am Anfang gut, hat aber die Umbauarbeiten der <i>Lazerboys</i> leider nicht überlebt - es musste also eine robustere Lösung her. Passend dazu hatte neulich 
+Die bisherigen Sensoren waren selbst verlötet und 'irgendwie' an der Kühlmittelleitung angebracht. Diese Lösung funktionierte am Anfang gut, hat aber die Umbauarbeiten der <i><b>Lazerboys</b></i> leider nicht überlebt - es musste also eine robustere Lösung her. Passend dazu hatte neulich 
 
-- [az-delivery.de](https://az-delivery.de)
+[az-delivery.de](https://az-delivery.de)
+
 genau diese Sensoren in einer Edelstahlhülse im Angebot.
 Passend dazu haben wird kurze Edelstahl-Schraubhülsen mit 1/2 Zoll Aussengewinde gefunden, die in ein PCV-T-Stück (noch nicht eingetroffen) geschraubt wird, das dann in den Kühlmittelfluss, vor und nach der Laserröhre eingebracht wird. In diese Hülsen können dann direkt die Sensoren geschützt montiert werden.
 
