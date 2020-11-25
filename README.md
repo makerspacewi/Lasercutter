@@ -157,5 +157,5 @@ Falls dieser Test positiv ausfällt, werden wir die Netzspannung kontaktieren un
 
 Mit ein bisschen Glück können die Umbauarbeiten nächsten Dienstag abgeschlossen werden.
 
-<b>Hinweis:</b><br>DH
+<b>Hinweis:</b><br>
 Wir mussten die Gondel in der X-Richtung bewegen und stellten dabei fest, dass bei bestimmten Stellungen ein mechanisches 'Schleifgeräusch' zu hören ist. Leider konnten wir die Quelle nicht ausfindig machen. Hier sollten die 'Lazerboyz' noch mal genauer hinschauen.
