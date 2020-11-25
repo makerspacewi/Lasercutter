@@ -143,19 +143,19 @@ Wir kamen richtig gut voran:
 - Not_AUS Schalter wurden neu verdrahtet
 - Deckelschalter wurden korrekt kontaktiert und das Kabel zum Anschluss vorbereitet
 - das Versorgungskabel für den 12V DC Lüftermotor wurde neu verlegt
-- das Relais-Gehäuse wurde auf der Holzplatte fixiert und der Deckel bekam ein kleines Loch um die verbaute LED sehen zu können
+- das Relais-Gehäuse wurde auf der Holzplatte fixiert und der Deckel bekam ein kleines Loch um die verbaute LED zu sehen
 - das neue Mini-Netzteil wurde eingebaut
 - die modifizierte Controller Plantine wurde wieder eingebaut
 - die RFID-Leseeinheit mit Display wurde wieder eingebaut
 - sämtliche Kabel von und zu dem Safety Controller wurden angeschlossen (mit Ausnahme der 230V AC Netzspannung)
 
-Die bestellten PVC-T-Stücke waren leider noch nicht eingetroffen. D.h. nächsten Dienstag muss ein Teil des Kühlmittels abgelassen und die vorher präparierten T-Stücke eingesetzt und das Kühlmittel wieder aufgefüllt werden. 
+Die bestellten PVC-T-Stücke waren leider noch nicht eingetroffen. D.h. nächsten Dienstag muss ein Teil des Kühlmittels abgelassen, die vorher präparierten T-Stücke eingesetzt und das Kühlmittel wieder aufgefüllt werden. 
 Dann können die neuen Temperatursensoren angeschlossen und in die Tauchhülsen eingebaut werden.
 
-Nach einer letzten optischen Überprüfung soll dann die erste Bestromung vorgenommen und die Niederspannungs Signale/Funktionen getestet werden.
+Nach einer letzten optischen Überprüfung soll dann die erste Bestromung erfolgen und die Niederspannungs Signale/Funktionen getestet werden.
 Falls dieser Test positiv ausfällt, werden wir die Netzspannung kontaktieren und mit der Endabnahme beginnen.
 
 Mit ein bisschen Glück können die Umbauarbeiten nächsten Dienstag abgeschlossen werden.
 
-<b>Hinweis</b>
+<b>Hinweis:</b><br>
 Wir mussten die Gondel in der X-Richtung bewegen und stellten dabei fest, dass bei bestimmten Stellungen ein mechanisches 'Schleifgeräusch' zu hören ist. Leider konnten wir die Quelle nicht ausfindig machen. Hier sollten die 'Lazerboiz' noch mal genauer hinschauen.
