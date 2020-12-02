@@ -159,3 +159,10 @@ Mit ein bisschen Glück können die Umbauarbeiten nächsten Dienstag abgeschloss
 
 <b>Hinweis:</b><br>
 Wir mussten die Gondel in der X-Richtung bewegen und stellten dabei fest, dass bei bestimmten Stellungen ein mechanisches 'Schleifgeräusch' zu hören ist. Leider konnten wir die Quelle nicht ausfindig machen. Hier sollten die 'Lazerboyz' noch mal genauer hinschauen.
+
+<h3>Dienstag, der 01.12.2020</h3>
+Eigentlich wollten wir an diesem Tag unser Safety-Umbauten abschliessen, damit der GLC in Betrieb gehen kann. Leider hat das nicht geklappt aus Gründen, die ich im folgenden erklären werde.
+
+Es waren noch verschiedene Kabel, die neuen Temperatursensoren und der Durchflussmengenmesser anzuschließen - dafür mussten wir die vordere Blechverkleidungabnehmen.
+Die PVC-T-Stücke wollen wir erst zum Schluss des Umbaus in den Kühlkreislauf montieren.
+Nach dem vorzüglichen Pizza-Schmaus wagen wir die erste Niederspannungsbestromung, die zu unserer Überraschung sofort funktionierte. Zu diesem Zeitpunkt konnte man sich bereits an der Maschine anmelden
