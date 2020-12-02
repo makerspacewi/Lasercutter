@@ -165,4 +165,4 @@ Eigentlich wollten wir an diesem Tag unser Safety-Umbauten abschliessen, damit d
 
 Es waren noch verschiedene Kabel, die neuen Temperatursensoren und der Durchflussmengenmesser anzuschließen - dafür mussten wir die vordere Blechverkleidungabnehmen.
 Die PVC-T-Stücke wollen wir erst zum Schluss des Umbaus in den Kühlkreislauf montieren.
-Nach dem vorzüglichen Pizza-Schmaus wagen wir die erste Niederspannungsbestromung, die zu unserer Überraschung sofort funktionierte. Zu diesem Zeitpunkt konnte man sich bereits an der Maschine anmelden
+Nach dem vorzüglichen Pizza-Schmaus wagen wir die erste Niederspannungsbestromung, die zu unserer Überraschung sofort funktionierte. Zu diesem Zeitpunkt konnte man sich bereits an der Maschine anmelden, Vorlauf- und Rücklauftemperatur wurde korrekt angezeigt und die Durchflussmenge war 0,00L/min - auch der Laser-Controller war deaktiviert.
