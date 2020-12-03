@@ -173,7 +173,8 @@ Nach dem Einloggen den Maschinenhauptschalter betätigt, woraufhin alle Agregate
 Nun zu den schlechten Nachrichten: Die Temperaturmessung des Vor- und Rücklaufs wird mit (2) One Wire Temperatursensoren der Firma Dallas gemacht. Diese Sensoren hängen zusammen an einem Push-/Pull-Datenbus. Der Prozessor fordert die Temperatur an, danach sendet der jeweilige Sensor die Daten über den One Wire Bus zurück.
 Dieser Bus ist sehr störanfällig und reagiert empfindlich auf Ein- und Ausschaltspitzen was dazu führt, dass manchmal die Datenwerte auf dem Bus gestört werden und der Prozessor meint er hätte einen Sensor verloren, bzw. ein Temperaturwert ist zu hoch (der ist dann 99,9).
 Wenn dies passiert deaktiviert der Safety-Prozessor sowohl den Controller für die Steppermotoren, sowie das Laser Netzteil.
-Unser Fokus nächsten Dienstag wird sein, die Temperaturmessung irgendwie stabiel zu bekommen. 
+Unser Fokus nächsten Dienstag wird sein, die Temperaturmessung irgendwie stabil zu bekommen. 
+
 Folgende Maßnahmen sind geplant:
 - den Datenbus Pull-Up Widerstand von 4.7k auf 2k oder gar 1k zu reduzieren 
 - für die Leitungen zu den Sensoren abgeschirmte Kabel verwenden
