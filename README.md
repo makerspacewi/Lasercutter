@@ -165,13 +165,13 @@ Eigentlich wollten wir an diesem Tag unser Safety-Umbauten abschliessen, damit d
 
 Es waren noch verschiedene Kabel, die neuen Temperatursensoren und der Durchflussmengenmesser anzuschließen - dafür mussten wir die vordere Blechverkleidung abnehmen.
 Die PVC-T-Stücke wollen wir erst zum Schluss des Umbaus in den Kühlkreislauf montieren.
-Nach dem vorzüglichen Pizza-Schmaus wagen wir die erste Niederspannungsbestromung, die zu unserer Überraschung sofort funktionierte. Zu diesem Zeitpunkt konnte man sich bereits an der Maschine anmelden, Vorlauf- und Rücklauftemperatur wurde korrekt angezeigt und die Durchflussmenge war 0,00 l/min - auch der Laser-Controller war deaktiviert.
+Nach dem vorzüglichen Pizza-Schmaus wagten wir die erste Niederspannungsbestromung, die zu unserer Überraschung sofort funktionierte. Zu diesem Zeitpunkt konnte man sich bereits an der Maschine anmelden, Vorlauf- und Rücklauftemperatur wurde korrekt angezeigt und die Durchflussmenge war 0,00 l/min - auch der Laser-Controller war deaktiviert.
 
 Dann haben wir mutig die 230V AC Versorgung des GLC temporär mit WAGO-Klemmen hergestellt.
 Nach dem Einloggen den Maschinenhauptschalter betätigt, woraufhin alle Agregate anliefen und die Gondel sich in Richtung Home-Position bewegte und auch ein Durchfluss von über 7,00 l/min angezeigt wurde.
 
 Nun zu den schlechten Nachrichten: Die Temperaturmessung des Vor- und Rücklaufs wird mit (2) One Wire Temperatursensoren der Firma Dallas gemacht. Diese Sensoren hängen zusammen an einem Push-/Pull-Datenbus. Der Prozessor fordert die Temperatur an, danach sendet der jeweilige Sensor die Daten über den One Wire Bus zurück.
-Dieser Bus ist sehr störanfällig und reagiert empfindlich auf Ein- und Ausschaltspitzen was dazu führt, dass manchmal die Datenwerte auf dem Bus gestört werden und der Prozessor meint er hätte einen Sensor verloren, bzw. ein Temperaturwert ist zu hoch (der ist dann 99,9).
+Dieser Bus ist sehr störanfällig und reagiert empfindlich auf Ein- und Ausschaltspitzen, was dazu führt, dass manchmal die Datenwerte auf dem Bus gestört werden und der Prozessor meint er hätte einen Sensor verloren, bzw. ein Temperaturwert ist zu hoch (der ist dann 99,9).
 Wenn dies passiert deaktiviert der Safety-Prozessor sowohl den Controller für die Steppermotoren, sowie das Laser Netzteil.
 Unser Fokus nächsten Dienstag wird sein, die Temperaturmessung irgendwie stabil zu bekommen. 
 
