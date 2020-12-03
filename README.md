@@ -182,4 +182,4 @@ Folgende Maßnahmen sind geplant:
 - ggf. nur noch die Rücklauftemperatur zu messen
 - oder Plan B - eine andere Meßmethode wählen
 
-Es tut unds Leid, dass der finale Umbau nun doch wesentlich länger braucht, als ursprünglich geplant.
+Es tut uns Leid, dass der finale Umbau nun doch wesentlich länger braucht, als ursprünglich geplant.
