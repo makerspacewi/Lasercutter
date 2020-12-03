@@ -163,7 +163,7 @@ Wir mussten die Gondel in der X-Richtung bewegen und stellten dabei fest, dass b
 <h3>Dienstag, der 01.12.2020</h3>
 Eigentlich wollten wir an diesem Tag unser Safety-Umbauten abschliessen, damit der GLC in Betrieb gehen kann. Leider hat das nicht geklappt aus Gründen, die ich im folgenden erklären werde.
 
-Es waren noch verschiedene Kabel, die neuen Temperatursensoren und der Durchflussmengenmesser anzuschließen - dafür mussten wir die vordere Blechverkleidungabnehmen.
+Es waren noch verschiedene Kabel, die neuen Temperatursensoren und der Durchflussmengenmesser anzuschließen - dafür mussten wir die vordere Blechverkleidung abnehmen.
 Die PVC-T-Stücke wollen wir erst zum Schluss des Umbaus in den Kühlkreislauf montieren.
 Nach dem vorzüglichen Pizza-Schmaus wagen wir die erste Niederspannungsbestromung, die zu unserer Überraschung sofort funktionierte. Zu diesem Zeitpunkt konnte man sich bereits an der Maschine anmelden, Vorlauf- und Rücklauftemperatur wurde korrekt angezeigt und die Durchflussmenge war 0,00 l/min - auch der Laser-Controller war deaktiviert.
 
