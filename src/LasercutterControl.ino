@@ -32,7 +32,7 @@
   changed: communication lasercutter with Serial,
   switch lasercutter on and off, incert emergency stop
 */
-#define Version "7.0" // (Test =7.x ==> 7.1)
+#define Version "7.0.0" // (Test =7.0.x ==> 7.0.1)
 
 #include <Arduino.h>
 #include <TaskScheduler.h>
@@ -417,7 +417,7 @@ void pulseCounter()
 
 int speed()
 {
-  float dif = tempV - ttar;
+  float dif = tempR - ttar;
   if (dif > 0)
   {
     return constrain((dif)*slope, 10, 255); // (temperature to tube - target temp) * slope - limited to 10 - 255
