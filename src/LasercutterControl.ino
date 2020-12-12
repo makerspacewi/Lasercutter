@@ -264,12 +264,14 @@ void TempCallback() {
     tempSensErr = true;
   } else {
     tempR = tempMV;
-    if (tempV < 99.9) tempSensErr = false;
+    if (tempV < 99.9) tempSensErr = false;  // tempR + tempV <99.9 --> no error
   }
 
   // Check temperature and flow -------
   if (max(tempR, tempV) >= tmax || flowRate < flowMin || tempSensErr)
+  {
     sensorsERR = true;
+  }
   else
   {
     sensorsERR = false;
