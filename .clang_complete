@@ -17,7 +17,7 @@
 -I/home/michael/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/5.4.0/include-fixed
 -I/home/michael/.platformio/packages/toolchain-atmelavr/avr/include
 -I/home/michael/.platformio/packages/tool-unity
--DPLATFORMIO=50003
+-DPLATFORMIO=50101
 -DARDUINO_AVR_PRO
 -DF_CPU=16000000L
 -DARDUINO_ARCH_AVR
